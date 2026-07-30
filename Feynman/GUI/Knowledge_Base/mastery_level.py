@@ -271,9 +271,7 @@ class header(QWidget):
 
     def get_last_session_value(self):
         current_session = get_value(header.connection, 'mastery_percentage', True, fetchall=True)[0][0]
-        print(current_session)
         last_session = get_value(header.connection, 'last_session', True, fetchall=True)[0][0]
-        print(last_session)
 
         change_from_last_session = current_session - last_session
 
