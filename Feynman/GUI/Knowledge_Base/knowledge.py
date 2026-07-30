@@ -745,32 +745,31 @@ class KnowledgeBase(QWidget):
         KnowledgeBase.connection.commit()
 
     def deep_analysis_button(self, connection, cards_number: int):
-        if cards_number:
-            self.button = QPushButton("Generate Deep Analysis")
-            self.button.clicked.connect(connection)
-            self.button.setObjectName("deepAnalysisBtn")
-            self.button.setStyleSheet("""
-                QPushButton#deepAnalysisBtn {
-                    background-color: #34d399;      
-                    color: #00563b; 
-                    font-weight: bold;
-                    font-size: 14px;
-                    border: none;
-                    border-radius: 12px;     
-                    padding: 16px 24px;
-                }
+        self.button = QPushButton("Generate Deep Analysis")
+        self.button.clicked.connect(connection)
+        self.button.setObjectName("deepAnalysisBtn")
+        self.button.setStyleSheet("""
+            QPushButton#deepAnalysisBtn {
+                background-color: #34d399;      
+                color: #00563b; 
+                font-weight: bold;
+                font-size: 14px;
+                border: none;
+                border-radius: 12px;     
+                padding: 16px 24px;
+            }
 
-                QPushButton#deepAnalysisBtn:hover {
-                    background-color: #10b981;
-                    border: 2px solid #10b981;
-                }
+            QPushButton#deepAnalysisBtn:hover {
+                background-color: #10b981;
+                border: 2px solid #10b981;
+            }
 
-                QPushButton#deepAnalysisBtn:pressed {
-                    background-color: #059669;     
-                }
-            """)
+            QPushButton#deepAnalysisBtn:pressed {
+                background-color: #059669;     
+            }
+        """)
 
-            self.arguments_layout.addWidget(self.button)
+        self.arguments_layout.addWidget(self.button)
 
     def change_button_name(self, new_name: str):
         self.button.setText(new_name)
