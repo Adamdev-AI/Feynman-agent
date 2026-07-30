@@ -44,8 +44,8 @@ Two main screens tie it together:
 ## Getting started
 
 ```bash
-git clone https://github.com/Adamdev-AI/FeynmanAgent.git
-cd FeynmanAgent
+git clone https://github.com/Adamdev-AI/Feynman-agent.git
+cd Feynman-agent
 cd Feynman
 pip install -r requirements.txt
 ```
