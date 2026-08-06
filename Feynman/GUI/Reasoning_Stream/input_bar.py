@@ -2,7 +2,6 @@ from PySide6.QtWidgets import QWidget, QHBoxLayout, QPushButton, QLineEdit
 from PySide6.QtCore import Qt, QSize, QThread, QObject, Signal
 from PySide6.QtGui import QIcon, QKeySequence
 from ai.main_ai import conversation
-from ai.signals import update_from_last_session
 
 class AiWorker(QObject): 
     finished = Signal(str)
@@ -96,5 +95,3 @@ class InputBar(QWidget):
     def _on_ai_response(self, response: str):
         self.chat.show_ai_message(response, 'ai', 'reasoning engine', 'GUI\\Reasoning_Stream\\assets\\reasoning.png')
         self.send_btn.setEnabled(True)
-
-        update_from_last_session.updated.emit()
