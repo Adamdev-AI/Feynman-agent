@@ -711,8 +711,6 @@ class KnowledgeBase(QWidget):
 
     def add_card(self, card_name, verified_or_wrong, header_category_name, progress_number: int, Key_concepts, Probes, identified_gap_text):
 
-        self.mastery_level.set_master_percentage(get_every_card_mastery_percentage())
-
         card = Card(card_name, verified_or_wrong, header_category_name, progress_number, Key_concepts, Probes, identified_gap_text)
 
         self.cards_container_layout.addWidget(card)
@@ -743,6 +741,9 @@ class KnowledgeBase(QWidget):
         """,(card_name, verified_or_wrong, header_category_name, progress_number, key_concepts, probes, identified_gap_text, convert_lists(chat_history)))
 
         KnowledgeBase.connection.commit()
+
+        self.mastery_level.set_master_percentage(get_every_card_mastery_percentage())
+        self.mastery_level.update_value_from_last_session()
 
     def deep_analysis_button(self, connection, cards_number: int):
         self.button = QPushButton("Generate Deep Analysis")
